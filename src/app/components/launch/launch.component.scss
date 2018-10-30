@@ -1,0 +1,34 @@
+div.element {
+  padding: 10px;
+  &.even {
+    background: #f6f6f6;
+  }
+  &.odd {
+    background: white;
+  }
+}
+
+.mat-icon {
+  &.success {
+    color: green;
+  }
+  &.fail {
+    color: red;
+  }
+}
+
+.flex-space {
+  flex: 1 1 auto;
+}
+.content {
+  .mat-icon {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    color: gray;
+  }
+}
+
+.bottom_card {
+  padding: 10px 0px;
+}

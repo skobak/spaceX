@@ -1,0 +1,32 @@
+.container {
+  width: 80vw;
+  overflow-x: auto;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+}
+.list {
+  opacity: 0.8;
+}
+.buttonGroup {
+  margin: 10px 0px;
+  width: 100%;
+  .mat-button-toggle {
+    width: 50%;
+  }
+}
+.topBar {
+  width: 100%;
+  background: #ffffffe3;
+  border-radius: 5px 5px 0px 0px;
+}
+#search {
+  width: 90%;
+  font-size: 24px;
+}
+.errorHolder {
+  padding: 20px 0px;
+  font-size: 20px;
+  color: white;
+}

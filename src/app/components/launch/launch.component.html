@@ -1,0 +1,32 @@
+<div class='element' [ngClass]="{'even' : index%2==0, 'odd': index%2!=0}" fxLayoutGap="10px" fxLayout="row" fxLayout.xs="column"
+  style='text-align: left;'>
+  <div fxFlex='40px' fxFlex.xs='20px'>{{item.flight_number}}</div>
+  <div fxLayout="column" class='content'>
+    <div fxFlex>
+      <mat-icon>
+        location_on
+      </mat-icon> {{item.launch_site_name_long}}
+    </div>
+    <div fxFlex='30px' fxLayout="row" class='bottom_card'>
+      <div fxFlex>
+        <mat-icon>today</mat-icon> {{item.launch_date_utc | date}}
+      </div>
+      <div fxFlex>
+        <mat-icon>list_alt</mat-icon> {{item.mission_name}}
+      </div>
+      <div fxFlex>
+        <mat-icon>navigation</mat-icon>{{item.rocket_name}}
+      </div>
+    </div>
+  </div>
+  <div class="flex-space"></div>
+  <div fxFlex='40px' fxFlex.xs='20px'>
+    <mat-icon [matTooltip]='(item.launch_success)?"success take off":"fail take off"' [ngClass]="{'success': item.launch_success,'fail':!item.launch_success}">flight_takeoff</mat-icon>
+  </div>
+  <div fxFlex='40px' fxFlex.xs='20px'>
+    <mat-icon [matTooltip]='(item.land_success)?"success landing":"fail landing"' [ngClass]="{'success': item.land_success,'fail':!item.land_success}">flight_land</mat-icon>
+  </div>
+  <div fxFlex='40px' fxHide.xs>
+    <mat-icon matTooltip='{{item.details}}'>info</mat-icon>
+  </div>
+</div>

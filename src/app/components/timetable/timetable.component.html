@@ -1,0 +1,40 @@
+<div class='container'>
+
+  <div class="topBar">
+    <mat-form-field id='search'>
+      <input matInput [(ngModel)]="searchText" placeholder="Search by launch site name">
+    </mat-form-field>
+  </div>
+
+  <mat-button-toggle-group #group="matButtonToggleGroup" [value]='defaultGroup' class='buttonGroup'>
+    <mat-button-toggle value="past">PAST</mat-button-toggle>
+    <mat-button-toggle value="upcoming">UPCOMING</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <div *ngIf='!isLoaded else loading'>
+    <div class='list' *ngIf='(dataPast.length!=0 && group.value==="past")'>
+      <div *ngFor='let item of dataPast | filter : searchText; let i = index'>
+        <app-launch [item]='item' [index]='i'></app-launch>
+      </div>
+    </div>
+
+    <div class='list' *ngIf='(dataUpcoming.length!=0 && group.value==="upcoming") '>
+      <div *ngFor='let item of dataUpcoming  | filter : searchText let i = index'>
+        <app-launch [item]='item' [index]='i'></app-launch>
+      </div>
+    </div>
+
+    <div class='errorHolder' *ngIf='(dataUpcoming.length==0 && group.value==="upcoming")'>
+      No upcoming launches yet
+    </div>
+    <div class='errorHolder' *ngIf='(dataPast.length==0 && group.value==="past")'>
+      No past launches
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <mat-progress-bar color="primary" mode="indeterminate">
+    </mat-progress-bar>
+  </ng-template>
+
+</div>
