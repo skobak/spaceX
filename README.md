@@ -1,3 +1,8 @@
+# About
+
+SPA appilcation that shows past and upcoming launches of SpaceX
+<a href='http://spacex.qrcards.org'>DEMO </a>
+
 # SpaceX
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
