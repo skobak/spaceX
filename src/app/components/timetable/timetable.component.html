@@ -24,11 +24,15 @@
       </div>
     </div>
 
-    <div class='errorHolder' *ngIf='(dataUpcoming.length==0 && group.value==="upcoming")'>
+    <div class='errorHolder' *ngIf='(dataUpcoming.length==0 && group.value==="upcoming" && !isError)'>
       No upcoming launches yet
     </div>
-    <div class='errorHolder' *ngIf='(dataPast.length==0 && group.value==="past")'>
+    <div class='errorHolder' *ngIf='(dataPast.length==0 && group.value==="past" && !isError)'>
       No past launches
+    </div>
+    <div class='errorHolder' *ngIf='isError'>
+      Something went worng, please check you internet connection and try again
+      <button mat-raised-button color='warn' (click)='getData()'>Reload</button>
     </div>
   </div>
 

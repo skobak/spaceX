@@ -16,15 +16,7 @@ export class FilterPipe implements PipeTransform {
     }
     searchText = searchText.toLowerCase();
     return items.filter(it => {
-      const isShortNameContainString = it.launch_site_name
-        .toLowerCase()
-        .includes(searchText);
-
-      const isLongNameContainString = it.launch_site_name_long
-        .toLowerCase()
-        .includes(searchText);
-
-      return isShortNameContainString || isLongNameContainString;
+      return it.launch_site_name_long.toLowerCase().includes(searchText);
     });
   }
 }

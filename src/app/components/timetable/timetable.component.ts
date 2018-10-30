@@ -15,8 +15,9 @@ export class TimetableComponent implements OnInit {
   public dataUpcoming = [];
   public dataPast = [];
   public searchText: string;
-  public isLoaded = true;
+  public isLoaded: boolean;
   public defaultGroup = 'past';
+  public isError = false;
   constructor(private launchesService: LaunchesService) {}
 
   ngOnInit() {
@@ -24,6 +25,8 @@ export class TimetableComponent implements OnInit {
   }
 
   getData() {
+    this.isLoaded = true;
+    this.isError = false;
     this.launchesService.getLaunches().subscribe(
       (value: any) => {
         // Split result into to buckets: Upcoming and Past
@@ -38,6 +41,7 @@ export class TimetableComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.isError = true;
         this.isLoaded = false;
       }
     );
